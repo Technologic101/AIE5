@@ -36,15 +36,24 @@ Each assignment will have a few of the following categories of exercises:
 Please evaluate your system on the following questions:
 
 1. Explain the concept of object-oriented programming in simple terms to a complete beginner. 
-    - Aspect Tested:
+    - Aspect Tested: Clear Instruction
+**DEFAULT**
+It's a good, concise summary and I recognize some of the basic points from my own education. I might question the use of a numerically-ordered list, as the points listed aren't necessarily a sequence. I'm interested in seeing if the format of the response changes if I remove the instructions to 'think through step by step'. The response also may have been improved by explanations of programming terms that a beginner might not be familiar with.
+![prompt 1 default](./p1default.png)
 2. Read the following paragraph and provide a concise summary of the key points…
-    - Aspect Tested:
+    - Aspect Tested: Reading Comprehension and Summarization
+    The news paragraph I selected was heavy on factual details. The bullet points listed correctly summarized the information, but the overall amount of text was similar to the original. It didn't particularly save time over reading the original. This would be good to compare against different types of text, especially ones more narrative or illustrative.
 3. Write a short, imaginative story (100–150 words) about a robot finding friendship in an unexpected place.
-    - Aspect Tested:
+    - Aspect Tested: Creative Writing
+    I got a story about a robot befriending a lost ladybug in a city garden. It had no plot or real characters. It began with "Once upon a time...". There was no sense of narrative structure. The prompt was explicitly included in the response. The story could be summarized in a sentence or two. A tiny amount of creativity was expressed in the choice of a "ladybug" as a character, but this appeared purely incidental, like a mad lib choice of any 'living creating'. It had no impact on the story.
+    This was only a pass in the sense that it was technically a story. 
 4. If a store sells apples in packs of 4 and oranges in packs of 3, how many packs of each do I need to buy to get exactly 12 apples and 9 oranges?
-    - Aspect Tested:
+    - Aspect Tested: Logical Reasoning
+    The answer was expressed as a bullet point list. It was accurate in its reasoning but unnecessarily verbose. So I asked it to express the same answer in mathematical expressions rather than verbal expression, and this prompted the most broken response I've seen of the app. Instead of answering the question in mathematical structure, it output a bullet point list of the prompts used by the model, expressing the prompts as mathematical functions like "g(x) = x". It described its own process rather than the answer to the question. The math itself was nonsensical and uninformative. This must have been in part due to how I asked the question, "can you express the above in mathematical terms rather than verbal expression?" The reference to "the above" seems to have confused it.
 5. Rewrite the following paragraph in a professional, formal tone…
-    - Aspect Tested:
+    - Aspect Tested: Tone
+    I chose a randomly-selected paragraph from a Jane Austin novel. Compared to the original, the response certainly looked and sounded like something in a business email. I found it interesting that the original text discussed "men and women" but this was changed to "different gender identities". This prompted an interesting discussion with the chat model on its value system and moral structure, and the logic behind re-writing classical texts based on modern perspectives.
+    With this answer and the short story, the model disregarded the "step by step" aspect of the prompt, so it seems to retain some sense of when that process is not appropriate to the answer.
 
 This "vibe check" now serves as a baseline, of sorts, to help understand what holes your application has.
 
@@ -63,3 +72,27 @@ In essence, it's a first look to ensure your system isn't experiencing catastrop
 ##### 🧑‍🤝‍🧑❓ Discussion Question #1:
 
 What are some limitations of vibe checking as an evaluation tool?
+
+### 🏗️ Activity 1 Results:
+
+#### Prompt 1 Original
+It's a good, concise summary and I recognize some of the basic points from my own education. I might question the use of a numerically-ordered list, as the points listed aren't necessarily a sequence. I'm interested in seeing if the format of the response changes if I remove the instructions to 'think through step by step'. The response also may have been improved by explanations of programming terms that a beginner might not be familiar with.
+![prompt 1 default](./p1default.png)
+
+#### Prompt 2 Original
+The news paragraph I selected was heavy on factual details. The bullet points listed correctly summarized the information, but the overall amount of text was similar to the original. It didn't particularly save time over reading the original. This would be good to compare against different types of text, especially ones more narrative or illustrative.
+![prompt 2 default](./p2default.png)
+
+#### Prompt 3 Original
+I got a story about a robot befriending a lost ladybug in a city garden. It had no plot or real characters. It began with "Once upon a time...". There was no sense of narrative structure. The prompt was explicitly included in the response. The story could be summarized in a sentence or two. A tiny amount of creativity was expressed in the choice of a "ladybug" as a character, but this appeared purely incidental, like a mad lib choice of any 'living creating'. It had no impact on the story.
+![prompt 3 default](./p3default.png)
+
+#### Prompt 4 Original
+The answer was expressed as a bullet point list. It was accurate in its reasoning but unnecessarily verbose. So I asked it to express the same answer in mathematical expressions rather than verbal expression.
+![prompt 4 default](./p4default.png)
+The follow-up response confused the question and produced some nonsense based on the role configuration.
+![prompt 4 follow-up](./p4default-1.png)
+
+#### Prompt 5 Original
+I chose a randomly-selected paragraph from a Jane Austin novel. Compared to the original, the response certainly looked and sounded like something in a business email. With this answer and the short story, the model disregarded the "step by step" aspect of the prompt, so it seems to retain some sense of when that process is not appropriate to the answer.
+![prompt 5 default](./p5default.png)
