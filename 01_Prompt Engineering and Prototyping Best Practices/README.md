@@ -36,16 +36,16 @@ Each assignment will have a few of the following categories of exercises:
 Please evaluate your system on the following questions:
 
 1. Explain the concept of object-oriented programming in simple terms to a complete beginner. 
-    - Aspect Tested:
+    - Aspect Tested: Clear Instruction
 2. Read the following paragraph and provide a concise summary of the key points…
-    - Aspect Tested:
+    - Aspect Tested: Reading Comprehension and Summarization
 3. Write a short, imaginative story (100–150 words) about a robot finding friendship in an unexpected place.
-    - Aspect Tested:
+    - Aspect Tested: Creative Writing
 4. If a store sells apples in packs of 4 and oranges in packs of 3, how many packs of each do I need to buy to get exactly 12 apples and 9 oranges?
-    - Aspect Tested:
+    - Aspect Tested: Logical Reasoning
 5. Rewrite the following paragraph in a professional, formal tone…
-    - Aspect Tested:
-
+    - Aspect Tested: Tone
+    
 This "vibe check" now serves as a baseline, of sorts, to help understand what holes your application has.
 
 ##### 🚧 Advanced Build:
@@ -63,3 +63,53 @@ In essence, it's a first look to ensure your system isn't experiencing catastrop
 ##### 🧑‍🤝‍🧑❓ Discussion Question #1:
 
 What are some limitations of vibe checking as an evaluation tool?
+
+### 🏗️ Activity 1 Results:
+
+#### Prompt 1 Original
+It's a good, concise summary and I recognize some of the basic points from my own education. I might question the use of a numerically-ordered list, as the points listed aren't necessarily a sequence. I'm interested in seeing if the format of the response changes if I remove the instructions to 'think through step by step'. The response also may have been improved by explanations of programming terms that a beginner might not be familiar with.
+![prompt 1 default](./p1default.png)
+
+#### Prompt 1 Follow-up
+With system guidelines removed and higher temperature, I got an analogy with Lego blocks. The same general outline is provided more concisely, but I don't think the analogy is helpful for understanding.
+![prompt 1 compare](./p1compare.png)
+
+#### Prompt 2 Original
+The news paragraph I selected was heavy on factual details. The bullet points listed correctly summarized the information, but the overall amount of text was similar to the original. It didn't particularly save time over reading the original. This would be good to compare against different types of text, especially ones more narrative or illustrative.
+![prompt 2 default](./p2default.png)
+
+#### Prompt 2 Follow-up
+The summary of the news article was considerably more concise and provided less information.
+![prompt 2 compare](./p2compare.png)
+
+#### Prompt 3 Original
+I got a story about a robot befriending a lost ladybug in a city garden. It had no plot or real characters. It began with "Once upon a time...". There was no sense of narrative structure. The prompt was explicitly included in the response. The story could be summarized in a sentence or two. A tiny amount of creativity was expressed in the choice of a "ladybug" as a character, but this appeared purely incidental, like a mad lib choice of any 'living creating'. It had no impact on the story.
+![prompt 3 default](./p3default.png)
+
+#### Prompt 3 Follow-up
+The story is very similar but slightly more coherent. It still references the prompt almost explicitly. But there's almost a plot.
+![prompt 3 compare](./p3compare.png)
+
+#### Prompt 4 Original
+The answer was expressed as a bullet point list. It was accurate in its reasoning but unnecessarily verbose. So I asked it to express the same answer in mathematical expressions rather than verbal expression.
+![prompt 4 default](./p4default.png)
+The next response confused the question and produced some nonsense based on the role configuration.
+![prompt 4 follow-up](./p4default-1.png)
+
+#### Prompt 4 Follow-up
+The math question was far more concise, and expressed the answer in the mathematical expression I attempted to get from the original. This seems to be the only answer that has improved.
+![prompt 4 compare](./p4compare.png)
+
+#### Prompt 5 Original
+I chose a randomly-selected paragraph from a Jane Austin novel. Compared to the original, the response certainly looked and sounded like something in a business communication, though it preserved an antiquated tone. With this answer and the short story, the model disregarded the "step by step" aspect of the prompt, so it seems to retain some sense of when that process is not appropriate to the answer.
+![prompt 5 default](./p5default.png)
+
+#### Prompt 5 Follow-up
+This result was the only one more verbose than the original. It is formal, but too verbose to be professional. It doesn't communicate the core idea clearly.
+![prompt 5 compare](./p5compare.png)
+
+
+### Summary of the Vibe Check Updates
+
+The default behavior of the 3.5 model tends to be more concise. With no system agent it communicates succinctly. Higher temperature may have contributed to better creative telling, but the professional tone test was not improved with fewer restrictions and higher temperature.
+The goal of my user prompt was to categorize the type of input, but it needed examples to understand what I meant - such as 'math problem' or 'story'. Instead it gave a summary of the topic, and replied in a format for that topic. This still worked but could be improved with a general set of categories to choose from.
