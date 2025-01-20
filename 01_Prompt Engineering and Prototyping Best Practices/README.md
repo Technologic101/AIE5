@@ -94,5 +94,5 @@ The follow-up response confused the question and produced some nonsense based on
 ![prompt 4 follow-up](./p4default-1.png)
 
 #### Prompt 5 Original
-I chose a randomly-selected paragraph from a Jane Austin novel. Compared to the original, the response certainly looked and sounded like something in a business email. With this answer and the short story, the model disregarded the "step by step" aspect of the prompt, so it seems to retain some sense of when that process is not appropriate to the answer.
+I chose a randomly-selected paragraph from a Jane Austin novel. Compared to the original, the response certainly looked and sounded like something in a business communication, though it preserved an antiquated tone. With this answer and the short story, the model disregarded the "step by step" aspect of the prompt, so it seems to retain some sense of when that process is not appropriate to the answer.
 ![prompt 5 default](./p5default.png)
