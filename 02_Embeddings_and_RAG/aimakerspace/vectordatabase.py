@@ -5,30 +5,38 @@ from aimakerspace.openai_utils.embedding import EmbeddingModel
 import asyncio
 
 
-def cosine_similarity(vector_a: np.array, vector_b: np.array) -> float:
-    """Computes the cosine similarity between two vectors."""
-    dot_product = np.dot(vector_a, vector_b)
-    norm_a = np.linalg.norm(vector_a)
-    norm_b = np.linalg.norm(vector_b)
-    return dot_product / (norm_a * norm_b)
-
-
 class VectorDatabase:
-    def __init__(self, embedding_model: EmbeddingModel = None):
+    def __init__(self, embedding_model: EmbeddingModel = None, distance_metric="cosine"):
         self.vectors = defaultdict(np.array)
         self.embedding_model = embedding_model or EmbeddingModel()
+        self.distance_metric = distance_metric
 
     def insert(self, key: str, vector: np.array) -> None:
         self.vectors[key] = vector
+
+    def calculate_distance(self, vec1: np.array, vec2: np.array, metric: str = None) -> float:
+        # Use provided metric or fall back to instance default
+        distance_metric = metric or self.distance_metric
+        
+        if distance_metric == "cosine":
+            return 1 - np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
+        elif distance_metric == "euclidean":
+            return np.linalg.norm(np.array(vec1) - np.array(vec2))
+        elif distance_metric == "manhattan":
+            return np.sum(np.abs(np.array(vec1) - np.array(vec2)))
+        elif distance_metric == "dot":
+            return -np.dot(vec1, vec2)
+        else:
+            raise ValueError(f"Unknown distance metric: {distance_metric}")
 
     def search(
         self,
         query_vector: np.array,
         k: int,
-        distance_measure: Callable = cosine_similarity,
+        distance_metric: str = None,
     ) -> List[Tuple[str, float]]:
         scores = [
-            (key, distance_measure(query_vector, vector))
+            (key, self.calculate_distance(query_vector, vector, distance_metric))
             for key, vector in self.vectors.items()
         ]
         return sorted(scores, key=lambda x: x[1], reverse=True)[:k]
@@ -37,11 +45,11 @@ class VectorDatabase:
         self,
         query_text: str,
         k: int,
-        distance_measure: Callable = cosine_similarity,
+        distance_metric: str = None,
         return_as_text: bool = False,
     ) -> List[Tuple[str, float]]:
         query_vector = self.embedding_model.get_embedding(query_text)
-        results = self.search(query_vector, k, distance_measure)
+        results = self.search(query_vector, k, distance_metric)
         return [result[0] for result in results] if return_as_text else results
 
     def retrieve_from_key(self, key: str) -> np.array:
